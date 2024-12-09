@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pawtal_prototype/widgets/widgets_home/widget_pet_card.dart';
 import 'package:pawtal_prototype/widgets/widgets_home/widget_user_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _homePage extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
-        title: Text("Pawtal - Prototype"),
+        title: const Text("Pawtal - Prototype"),
         leading: IconButton(
             icon: const Icon(
               Icons.pets,
@@ -26,22 +27,24 @@ class _homePage extends State<HomePage> {
       backgroundColor: Colors.purple[100],
       body: Align(
         alignment: Alignment.topCenter,
-        child: ListView(
-          children: <Widget>[
-            UserCard(),
-          ],
+        child: ListView(children: <Widget>[
+          UserCard(),
+          Row(
+            children: [PetCard(), PetCard()],
+          )
+        ]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: const CircleBorder(),
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
+        tooltip: "App Menu",
+        child: const Icon(
+          Icons.pets,
         ),
       ),
-      floatingActionButton: Align(
-        alignment: Alignment.bottomRight,
-        child: FloatingActionButton(
-          onPressed: () {},
-          shape: const CircleBorder(),
-          backgroundColor: Colors.purple,
-          foregroundColor: Colors.white,
-          child: Icon(Icons.pets),
-        ),
-      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
