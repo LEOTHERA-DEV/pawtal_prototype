@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pawtal_prototype/pages/home.dart';
+import 'package:pawtal/screens/home_screen.dart';
+import 'package:pawtal/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,31 +11,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = "Pawtal";
     return MaterialApp(
+      title: 'PetCare Dex',
       debugShowCheckedModeBanner: false,
-      title: appTitle,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: appTitle),
+      theme: AppTheme.getTheme(),
+      home: const HomeScreen(),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return HomePage();
   }
 }
